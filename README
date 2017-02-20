@@ -1,0 +1,22 @@
+Nume: TĂNASE Mircea Adrian
+Grupa: CB335
+Am implementat rezolvarea temei 1 in Jflex, iar structura proiectului este:
+	-clasa Gramatica: implementeaza functionalitatile unei gramatici, avand
+	 ca membri cele 4 componente care o definesc, si alte structuri necesare
+	 aplicarii algoritmilor
+	-clasa Alfabet: implementeaza o multime de simboluri, in cazul de fata V
+	-clasa Regula: implementeaza functionalitatile unei reguli de derivare
+	-clasa Simbol, extinsa de Terminal si Neterminal: numele sunt sugestive
+Toate clasele au metode corespunzatoare, necesare constructiei, detectiei
+de erori sau aplicarii algoritmilor de rezolvare.
+Structura automatului pe care se bazeaza lexerul poate fi impartit in 4 
+automate mai simple, cate unul pentru citirea fiecarui element al gramaticii
+(V,Sigma,R,S), "legate" prin starile care citesc virgulele exterioare.
+Fiecare asa-numit automat mai simplu (cu exceptia celui pentru S, care doar 
+citeste Neterminalul) verifica daca cumva multimea pe care o citeste nu e 
+vida, dupa care are o functionare ciclica (Simbol/Regula, Separator,
+Simbol/Regula...). Erorile semantice sunt tratate in cadrul citirii (de ex.
+la citirea unui element din Sigma se verifica daca acesta este in V), iar
+erorile sintactice sunt tratate prin regula default de la final, adica daca
+nu sunt tranzitii definite pentru simbolul citit intr-o stare =>syntax error
+Mentionez ca Makefile-ul, flexer-ul si clasa Main se bazeaza pe Tema 0.
